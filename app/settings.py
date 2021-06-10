@@ -31,7 +31,7 @@ SECRET_KEY = 'btt7tkokvgp#%g$sglii@uzos%s-52gzetqv2cx2ab&%ma#2o1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['radiant-headland-74346.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['radiant-headland-74346.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
