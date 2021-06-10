@@ -2,7 +2,7 @@
 FROM python:3.8.3-alpine
 
 # set work directory
-WORKDIR /mypetssite
+WORKDIR /app
 
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
@@ -14,8 +14,8 @@ RUN apk update \
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY ../requirements.txt .
+COPY app/requirements.txt .
 RUN pip install -r requirements.txt
 
 # copy project
-COPY . .
+COPY mypetssite/ /app/
