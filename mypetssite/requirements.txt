@@ -1,0 +1,5 @@
+Django==3.2.3
+djangorestframework==3.12.4
+psycopg2==2.8.6
+Pillow==2.2.2
+django-heroku==0.3.1
