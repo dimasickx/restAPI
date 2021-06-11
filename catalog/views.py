@@ -20,7 +20,7 @@ def pet_list(request):
     limit, offset, has_photo = get_params(request)
 
     if request.method == 'DELETE':
-        return delete_all()
+        return delete_all(request)
     elif request.method == 'POST':
         return add_pet(request)
     elif request.method == 'GET':
@@ -84,7 +84,9 @@ def get_params(request):
     return limit, offset, has_photo
 
 
-def delete_all():
-    Pet.objects.all().delete()
+def delete_all(request):
+    data = JSONParser().parse(request)
+    delete_list = data.get('ids', [])
+    Pet.objects.filter(pk__in=delete_list).delete()
     return JsonResponse({'message': 'Products were deleted successfully!'},
                         status=status.HTTP_204_NO_CONTENT)
