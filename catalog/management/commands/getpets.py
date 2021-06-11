@@ -19,4 +19,7 @@ class Command(BaseCommand):
             serialize_pet = PetSerializer(pets, many=True)
         except Pet.DoesNotExist:
             raise CommandError('Pets does not exist')
-        self.stdout.write(json.dumps(serialize_pet.data), ending='')
+        json_data = json.dumps(serialize_pet.data)
+        with open('stdout.txt', 'w') as file:
+            file.write(json_data)
+        self.stdout.write(json_data, ending='')
